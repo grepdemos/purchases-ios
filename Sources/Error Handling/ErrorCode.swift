@@ -60,6 +60,9 @@ import Foundation
     @objc(RCFeatureNotAvailableInCustomEntitlementsComputationMode)
     case featureNotAvailableInCustomEntitlementsComputationMode = 36
     @objc(RCSignatureVerificationFailed) case signatureVerificationFailed = 37
+    @objc(RCInvalidWebPurchaseToken) case invalidWebPurchaseToken = 38
+    @objc(RCAlreadyRedeemedWebPurchaseToken) case alreadyRedeemedWebPurchaseToken = 39
+    @objc(RCExpiredWebPurchaseToken) case expiredWebPurchaseToken = 40
 
     // swiftlint:enable missing_docs
 
@@ -180,7 +183,12 @@ extension ErrorCode: DescribableError {
             return "This feature is not available when utilizing the customEntitlementsComputation dangerousSetting."
         case .signatureVerificationFailed:
             return "Request failed signature verification. See https://rev.cat/trusted-entitlements for more info."
-
+        case .invalidWebPurchaseToken:
+            return "The link you provided does not contain a valid purchase token."
+        case .alreadyRedeemedWebPurchaseToken:
+            return "The link you provided has already been redeemed."
+        case .expiredWebPurchaseToken:
+            return "The link you provided has expired. A new one will be sent to the customer email."
         @unknown default:
             return "Something went wrong."
         }
@@ -281,6 +289,12 @@ extension ErrorCode {
             return "FEATURE_NOT_AVAILABLE_IN_CUSTOM_ENTITLEMENTS_COMPUTATION_MODE_ERROR"
         case .signatureVerificationFailed:
             return "SIGNATURE_VERIFICATION_FAILED"
+        case .invalidWebPurchaseToken:
+            return "INVALID_WEB_PURCHASE_TOKEN"
+        case .alreadyRedeemedWebPurchaseToken:
+            return "ALREADY_REDEEMED_WEB_PURCHASE_TOKEN"
+        case .expiredWebPurchaseToken:
+            return "EXPIRED_WEB_PURCHASE_TOKEN"
         @unknown default:
             return "UNRECOGNIZED_ERROR"
         }

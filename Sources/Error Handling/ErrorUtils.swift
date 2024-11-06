@@ -665,7 +665,10 @@ private extension ErrorUtils {
                 .invalidPromotionalOfferError,
                 .offlineConnectionError,
                 .featureNotAvailableInCustomEntitlementsComputationMode,
-                .signatureVerificationFailed:
+                .signatureVerificationFailed,
+                .invalidWebPurchaseToken,
+                .alreadyRedeemedWebPurchaseToken,
+                .expiredWebPurchaseToken:
                 Logger.error(
                     localizedDescription,
                     fileName: fileName,

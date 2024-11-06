@@ -43,7 +43,7 @@ class BasePurchasesOrchestratorTests: StoreKitConfigTestCase {
     var mockOfferingsManager: MockOfferingsManager!
     var mockStoreMessagesHelper: MockStoreMessagesHelper!
     var mockTransactionFetcher: MockStoreKit2TransactionFetcher!
-    var webPurchaseRedemptionHelper: WebPurchaseRedemptionHelper!
+    var webPurchaseRedemptionHelper: MockWebPurchaseRedemptionHelper!
 
     var orchestrator: PurchasesOrchestrator!
 
@@ -106,9 +106,7 @@ class BasePurchasesOrchestratorTests: StoreKitConfigTestCase {
         self.notificationCenter = MockNotificationCenter()
         let identityManager = MockIdentityManager(mockAppUserID: "test-user-id",
                                                   mockDeviceCache: self.deviceCache)
-        self.webPurchaseRedemptionHelper = .init(backend: self.backend,
-                                                 identityManager: identityManager,
-                                                 customerInfoManager: self.customerInfoManager)
+        self.webPurchaseRedemptionHelper = MockWebPurchaseRedemptionHelper()
         self.setUpStoreKit1Wrapper()
         self.setUpAttribution()
         self.setUpOrchestrator()
