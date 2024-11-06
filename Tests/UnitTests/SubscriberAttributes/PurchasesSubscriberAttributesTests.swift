@@ -185,7 +185,8 @@ class PurchasesSubscriberAttributesTests: TestCase {
                                                           offeringsManager: self.mockOfferingsManager,
                                                           manageSubscriptionsHelper: self.mockManageSubsHelper,
                                                           beginRefundRequestHelper: self.mockBeginRefundRequestHelper,
-                                                          storeMessagesHelper: self.mockStoreMessagesHelper)
+                                                          storeMessagesHelper: self.mockStoreMessagesHelper,
+                                                          paywallEventsManager: nil)
         let trialOrIntroductoryPriceEligibilityChecker = TrialOrIntroPriceEligibilityChecker(
             systemInfo: systemInfo,
             receiptFetcher: mockReceiptFetcher,
