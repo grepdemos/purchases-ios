@@ -553,7 +553,7 @@ final class PurchasesOrchestrator {
 
         if let transaction = transaction {
             customerInfo = try await self.handlePurchasedTransaction(transaction, .purchase, metadata)
-          
+
             self.postPaywallEventsIfNeeded()
         } else {
             // `transaction` would be `nil` for `Product.PurchaseResult.pending` and
